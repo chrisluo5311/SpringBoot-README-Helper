@@ -27,6 +27,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
       - name: run test
+        #pom.xml前面加上專案名
         run: |
-          mvn -B package --file ${project_name}/pom.xml,
+          mvn -B package --file SpringBoot-README-Helper/pom.xml,
           java SpringBootReadmeHelperApplication.java
