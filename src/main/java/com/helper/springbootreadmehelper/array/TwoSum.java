@@ -70,7 +70,6 @@ public class TwoSum {
         int target = 6;
 //        int target = 6;
         System.out.println(Arrays.toString(twoSumMap(nums, target)));
-        System.out.println();
     }
 
 }
