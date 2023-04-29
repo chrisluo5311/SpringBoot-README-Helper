@@ -28,5 +28,5 @@ jobs:
             ${{ runner.os }}-maven-
       - name: run test
         run: |
-          mvn -B package --file pom.xml,
+          mvn -B package --file ${project_name}/pom.xml,
           java SpringBootReadmeHelperApplication.java
