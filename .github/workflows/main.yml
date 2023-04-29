@@ -11,14 +11,22 @@ jobs:
     name: Update LeetCode README
     steps:
       - uses: actions/checkout@v3
-      #Set up JDK 17 & Maven cache
+      #Set up JDK 17
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
             distribution: 'temurin'
             java-version: '17'
-            cache: 'maven'
-      - name: Build with Maven
+      #Set up Maven cache
+      - name: Cache Maven packages
+        #This action allows caching dependencies and build outputs to improve workflow execution time.
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: run test
         run: |
           mvn -B package --file pom.xml,
           java SpringBootReadmeHelperApplication.java
