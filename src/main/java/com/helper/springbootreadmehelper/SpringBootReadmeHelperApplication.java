@@ -11,6 +11,7 @@ public class SpringBootReadmeHelperApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootReadmeHelperApplication.class, args);
+        System.out.println("hello world");
     }
 
 }
